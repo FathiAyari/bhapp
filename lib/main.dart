@@ -22,8 +22,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       translations: Languages(),
-      locale: Locale(GetStorage().read("locale") != null ? GetStorage().read("locale") : "en"),
-      fallbackLocale: Locale("en"),
+      locale: Locale(GetStorage().read("locale") != null ? GetStorage().read("locale") : "fr"),
+      fallbackLocale: Locale("fr"),
       title: 'Money Manager',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(

@@ -1,9 +1,15 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:excel/excel.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:intl/intl.dart';
 import 'package:moneymanager/core/enums/viewstate.dart';
 import 'package:moneymanager/core/services/category_icon_service.dart';
 import 'package:moneymanager/core/viewmodels/base_model.dart';
+import 'package:open_file/open_file.dart';
+import 'package:path_provider/path_provider.dart';
 
 import '../../locator.dart';
 import '../models/transaction.dart';
@@ -148,6 +154,51 @@ class PieChartModel extends BaseModel {
         .get();
     for (var test in data.docs.toList()) {
       transactions.add(TransactionProcess.fromJson(test.data() as Map<String, dynamic>));
+    }
+  }
+
+  void generateExcelAndDownload() async {
+    // Create a new Excel Workbook
+    var excel = Excel.createExcel();
+
+    // Add a Worksheet
+    var sheet = excel['Sheet1'];
+
+    // Define the headers
+    sheet.appendRow([
+      'Date',
+      'Description',
+      'Montant',
+    ]);
+
+    // Insert transactions into the Excel file
+    for (var transaction in transactions) {
+      sheet.appendRow([
+        DateFormat("yyyy/MM/dd").format(transaction.date!),
+        transaction.memo,
+        transaction.amount,
+      ]);
+    }
+
+    // Save the Excel file
+    var bytes = excel.encode();
+
+    // Get the download directory path
+    var downloadDirectory = await getExternalStorageDirectory();
+
+    // Create a new file
+    var file = File('${downloadDirectory?.path}/transactions${DateFormat("yyyyMMdd hhhmm").format(DateTime.now())}.xlsx');
+
+    // Write the bytes to the file
+    await file.writeAsBytes(bytes!);
+
+    // Check if the file exists
+    if (await file.exists()) {
+      // Open the file for viewing/downloading
+      OpenFile.open(file.path);
+      print(file.path);
+    } else {
+      print('File does not exist');
     }
   }
 }

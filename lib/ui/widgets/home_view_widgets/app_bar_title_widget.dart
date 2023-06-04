@@ -23,17 +23,17 @@ class AppBarTitle extends StatelessWidget {
               style: TextStyle(
                 fontWeight: FontWeight.w500,
                 fontSize: 20,
-                color: Colors.black,
+                color: Colors.white,
               ),
             ),
             model.isCollabsed
                 ? Icon(
                     Icons.arrow_drop_down,
-                    color: Colors.black,
+                    color: Colors.white,
                   )
                 : Icon(
                     Icons.arrow_drop_up,
-                    color: Colors.black,
+                    color: Colors.white,
                   ),
           ],
         ),

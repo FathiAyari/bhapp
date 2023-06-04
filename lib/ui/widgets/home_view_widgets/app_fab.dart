@@ -13,8 +13,8 @@ class AppFAB extends StatelessWidget {
         closeMonthPicker();
         Navigator.of(context).pushNamed("/newtransaction");
       },
-      child: Icon(Icons.add, color: Colors.black38),
-      backgroundColor: backgroundColor,
+      child: Icon(Icons.add, color: Colors.white),
+      backgroundColor: primaryColor,
     );
   }
 }

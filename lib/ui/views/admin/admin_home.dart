@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:moneymanager/ui/shared/app_colors.dart';
 import 'package:moneymanager/ui/views/messages/Messages.dart';
 import 'package:moneymanager/ui/widgets/home_view_widgets/app_drawer.dart';
 
@@ -55,7 +56,9 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
     return WillPopScope(
       onWillPop: avoidReturnButton,
       child: Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(
+          backgroundColor: primaryColor,
+        ),
         drawer: AppDrawer(),
         body: buildMessages(),
       ),

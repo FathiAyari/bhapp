@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:moneymanager/ui/shared/app_colors.dart';
 import 'package:moneymanager/ui/views/groups/groups.dart';
 import 'package:moneymanager/ui/views/home_view.dart';
 import 'package:moneymanager/ui/views/messages/chat.dart';
@@ -59,7 +60,7 @@ class _UserHomeScreenState extends State<UserHomeScreen> {
       onWillPop: avoidReturnButton,
       child: Scaffold(
         bottomNavigationBar: BottomNavigationBar(
-          selectedItemColor: Colors.green,
+          selectedItemColor: primaryColor,
           currentIndex: pageIndex,
           onTap: (i) {
             setState(() {

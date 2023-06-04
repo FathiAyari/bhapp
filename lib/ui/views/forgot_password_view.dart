@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:moneymanager/core/services/AuthServices.dart';
+import 'package:moneymanager/ui/shared/app_colors.dart';
 import 'package:moneymanager/ui/shared/dimensions/dimensions.dart';
 import 'package:moneymanager/ui/views/sign_in_view.dart';
 import 'package:moneymanager/ui/widgets/alert_task_view_widget/alert_task.dart';
@@ -36,8 +37,8 @@ class _ForgotPassScreenState extends State<ForgotPassScreen> {
                               bottomLeft: Radius.circular(90),
                             ),
                             gradient: LinearGradient(begin: Alignment.topRight, end: Alignment.bottomLeft, colors: [
-                              Colors.blueGrey,
-                              Colors.indigo,
+                              Colors.blue,
+                              primaryColor,
                             ]),
                           ),
                           child: Center(
@@ -47,10 +48,13 @@ class _ForgotPassScreenState extends State<ForgotPassScreen> {
                             children: [
                               Container(
                                 margin: EdgeInsets.only(top: 50),
-                                child: Image(
-                                  image: AssetImage('assets/icons/logo.png'),
-                                  height: 90,
-                                  width: 90,
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(20),
+                                  child: Image(
+                                    image: AssetImage('assets/images/bh.jpg'),
+                                    height: 90,
+                                    width: 90,
+                                  ),
                                 ),
                               ),
                               // SizedBox(height: 10),
@@ -70,20 +74,13 @@ class _ForgotPassScreenState extends State<ForgotPassScreen> {
                           )),
                         ),
                         SizedBox(height: 30),
-
-                        //backgroundColor: Colors.white10,
-                        //appBar: AppBar(
-                        //backgroundColor: Colors.green,
-                        //title: Text('Forgot Password'),
-                        // centerTitle: true,
-                        //),
                         InputField(
                           label: "Email",
                           controller: emailController,
                           textInputType: TextInputType.emailAddress,
                           prefixWidget: Icon(
                             Icons.email,
-                            color: Colors.indigo,
+                            color: primaryColor,
                           ),
                         ),
                         SizedBox(
@@ -99,7 +96,7 @@ class _ForgotPassScreenState extends State<ForgotPassScreen> {
                                         child: CupertinoButton(
                                             child: Text('Envoyer',
                                                 style: TextStyle(color: Colors.white, fontStyle: FontStyle.italic)),
-                                            color: Colors.indigo,
+                                            color: primaryColor,
                                             onPressed: () {
                                               if (_formKey.currentState!.validate()) {
                                                 setState(() {

@@ -48,7 +48,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: Constants.screenHeight * 0.1),
                   child: Text(
-                    'Money Manager',
+                    'BH',
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.w300),
                   ),
                 ),
@@ -57,7 +57,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   width: Constants.screenWidth,
                 ),
                 Text(
-                  'A place for all of your expenses.',
+                  'Un endroit pour toutes vos dépenses.',
                   style: TextStyle(fontStyle: FontStyle.italic),
                 ),
                 Padding(

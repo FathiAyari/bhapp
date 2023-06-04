@@ -91,7 +91,7 @@ class _HomeViewState extends State<HomeView> {
                               income = income + value.get("amount");
                             }
                           }
-                          print(trProcess.length);
+                          trProcess = trProcess.reversed.toList();
                           return Container(
                             child: Column(
                               children: <Widget>[
@@ -122,8 +122,8 @@ class _HomeViewState extends State<HomeView> {
 
   buildAppBar(String title, HomeModel model) {
     return AppBar(
-      iconTheme: IconThemeData(color: Colors.black),
-      backgroundColor: backgroundColor,
+      iconTheme: IconThemeData(color: Colors.white),
+      backgroundColor: primaryColor,
       title: AppBarTitle(
         title: title,
         model: model,
@@ -133,7 +133,10 @@ class _HomeViewState extends State<HomeView> {
             onPressed: () {
               Get.to(AppSettings());
             },
-            icon: Icon(Icons.settings))
+            icon: Icon(
+              Icons.settings,
+              color: Colors.white,
+            ))
       ],
     );
   }

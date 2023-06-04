@@ -33,6 +33,7 @@ class NewTransactionModel extends BaseModel {
     Category(12, "education".tr, FontAwesomeIcons.book, Colors.teal),
     Category(13, "gift".tr, FontAwesomeIcons.gift, Colors.redAccent),
     Category(14, "pet".tr, FontAwesomeIcons.dog, Colors.deepPurpleAccent),
+    Category(15, "saving".tr, FontAwesomeIcons.save, Colors.deepPurpleAccent),
   };
 
   final incomeList = [
@@ -41,7 +42,6 @@ class NewTransactionModel extends BaseModel {
     Category(2, "grants".tr, FontAwesomeIcons.gifts, Colors.lightGreen),
     Category(3, "rental".tr, FontAwesomeIcons.houseUser, Colors.yellow),
     Category(4, "investment".tr, FontAwesomeIcons.piggyBank, Colors.cyanAccent),
-    Category(5, "lottery".tr, FontAwesomeIcons.dice, Colors.deepOrange),
   ];
   List<Category> loadCategoriesIcons() {
     if (selectedCategory == 1) {

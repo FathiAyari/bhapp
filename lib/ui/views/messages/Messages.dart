@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:intl/intl.dart';
 import 'package:moneymanager/core/models/user.dart';
+import 'package:moneymanager/ui/shared/app_colors.dart';
 import 'package:moneymanager/ui/shared/dimensions/dimensions.dart';
 
 import 'Messenger.dart';
@@ -89,8 +90,7 @@ class _buildMessagesState extends State<buildMessages> {
                                 return Padding(
                                   padding: const EdgeInsets.all(2.0),
                                   child: Container(
-                                    decoration: BoxDecoration(
-                                        color: Colors.cyan.withOpacity(0.2), borderRadius: BorderRadius.circular(5)),
+                                    decoration: BoxDecoration(color: primaryColor, borderRadius: BorderRadius.circular(5)),
                                     child: InkWell(
                                       onTap: () async {
                                         var destination = await FirebaseFirestore.instance
@@ -134,6 +134,7 @@ class _buildMessagesState extends State<buildMessages> {
                                                           children: [
                                                             Text(
                                                               "${snapshot.data!.docs[0].get('userName')}",
+                                                              style: TextStyle(color: Colors.white),
                                                             ),
                                                             Row(
                                                               children: [
@@ -141,11 +142,15 @@ class _buildMessagesState extends State<buildMessages> {
                                                                   child: Text(
                                                                     "${msg[index]['getSender'] == user['uid'] ? 'you'.tr : ''} ${msg[index]["getText"]}",
                                                                     overflow: TextOverflow.ellipsis,
+                                                                    style: TextStyle(color: Colors.white),
                                                                     maxLines: 1,
                                                                   ),
                                                                 ),
                                                                 Container(
-                                                                  child: Text("${msg[index]["getTime"]}"),
+                                                                  child: Text(
+                                                                    "${msg[index]["getTime"]}",
+                                                                    style: TextStyle(color: Colors.white),
+                                                                  ),
                                                                 )
                                                               ],
                                                             )

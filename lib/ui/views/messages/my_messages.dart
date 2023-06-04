@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:moneymanager/ui/shared/app_colors.dart';
 import 'package:moneymanager/ui/views/messages/Messages.dart';
 
 class MyMessages extends StatefulWidget {
@@ -15,6 +16,7 @@ class _MyMessagesState extends State<MyMessages> {
       body: buildMessages(),
       backgroundColor: Colors.white,
       floatingActionButton: FloatingActionButton(
+        backgroundColor: primaryColor,
         onPressed: () {
           Navigator.pushNamed(context, "/admins");
         },

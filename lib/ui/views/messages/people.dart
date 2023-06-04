@@ -5,6 +5,7 @@ import 'package:get/get_navigation/get_navigation.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:lottie/lottie.dart';
 import 'package:moneymanager/core/models/user.dart';
+import 'package:moneymanager/ui/shared/app_colors.dart';
 import 'package:moneymanager/ui/shared/dimensions/dimensions.dart';
 import 'package:moneymanager/ui/views/messages/Messenger.dart';
 
@@ -39,7 +40,7 @@ class _PeopleState extends State<People> {
                       padding: const EdgeInsets.all(3.0),
                       child: Container(
                         height: Constants.screenHeight * 0.1,
-                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(20), color: Colors.cyan.withOpacity(0.1)),
+                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(20), color: primaryColor),
                         child: Row(
                           children: [
                             Padding(
@@ -54,7 +55,7 @@ class _PeopleState extends State<People> {
                               children: [
                                 Text(
                                   users[index].userName!,
-                                  style: TextStyle(color: Colors.green),
+                                  style: TextStyle(color: Colors.white),
                                 ),
                               ],
                             ),

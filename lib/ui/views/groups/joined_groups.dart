@@ -6,6 +6,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:intl/intl.dart';
 import 'package:lottie/lottie.dart';
 import 'package:moneymanager/core/models/group.dart';
+import 'package:moneymanager/ui/shared/app_colors.dart';
 import 'package:moneymanager/ui/shared/dimensions/dimensions.dart';
 import 'package:moneymanager/ui/views/groups/add_group.dart';
 import 'package:moneymanager/ui/views/groups/group_details.dart';
@@ -111,8 +112,7 @@ class _MyGroupsState extends State<MyJoinedGroups> {
                               padding: const EdgeInsets.all(3.0),
                               child: Container(
                                 height: Constants.screenHeight * 0.1,
-                                decoration:
-                                    BoxDecoration(borderRadius: BorderRadius.circular(20), color: Colors.cyan.withOpacity(0.1)),
+                                decoration: BoxDecoration(borderRadius: BorderRadius.circular(20), color: primaryColor),
                                 child: Row(
                                   children: [
                                     Padding(
@@ -130,15 +130,15 @@ class _MyGroupsState extends State<MyJoinedGroups> {
                                       children: [
                                         Text(
                                           "${'group_name'.tr}: ${groups[index].name}",
-                                          style: TextStyle(color: Colors.green),
+                                          style: TextStyle(color: Colors.white),
                                         ),
                                         Text(
                                           "${'creation_date'.tr} : ${DateFormat("yyyy/MM/dd hh:mm").format(groups[index].createdAt)}",
-                                          style: TextStyle(color: Colors.green),
+                                          style: TextStyle(color: Colors.white),
                                         ),
                                         Text(
                                           "${'members'.tr} : ${groups[index].members.length}",
-                                          style: TextStyle(color: Colors.green),
+                                          style: TextStyle(color: Colors.white),
                                         ),
                                         StreamBuilder(
                                             stream: FirebaseFirestore.instance
@@ -150,7 +150,7 @@ class _MyGroupsState extends State<MyJoinedGroups> {
                                               if (snapshot.hasData) {
                                                 return Text(
                                                   "Admin : ${snapshot.data!.get("userName")}",
-                                                  style: TextStyle(color: Colors.green),
+                                                  style: TextStyle(color: Colors.white),
                                                 );
                                               } else {
                                                 return Container();
@@ -176,8 +176,7 @@ class _MyGroupsState extends State<MyJoinedGroups> {
                             padding: const EdgeInsets.all(3.0),
                             child: Container(
                               height: Constants.screenHeight * 0.1,
-                              decoration:
-                                  BoxDecoration(borderRadius: BorderRadius.circular(20), color: Colors.cyan.withOpacity(0.1)),
+                              decoration: BoxDecoration(borderRadius: BorderRadius.circular(20), color: primaryColor),
                               child: Row(
                                 children: [
                                   Padding(
@@ -254,6 +253,7 @@ class _MyGroupsState extends State<MyJoinedGroups> {
             );
           }),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: primaryColor,
         onPressed: () {
           Get.to(AddGroup());
         },

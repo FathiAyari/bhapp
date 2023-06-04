@@ -59,6 +59,7 @@ class InsertTransactionModel extends BaseModel {
 
     TransactionProcess newTransaction = TransactionProcess(
         type: type,
+        date: DateTime.now(),
         day: selectedDay,
         month: selectedMonth,
         memo: memoController.text,

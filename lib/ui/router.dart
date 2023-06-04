@@ -4,6 +4,7 @@ import 'package:moneymanager/ui/views/details_view.dart';
 import 'package:moneymanager/ui/views/edit_view.dart';
 import 'package:moneymanager/ui/views/home_view.dart';
 import 'package:moneymanager/ui/views/messages/client_services.dart';
+import 'package:moneymanager/ui/views/saving.dart';
 import 'package:moneymanager/ui/views/sign_in_view.dart';
 import 'package:moneymanager/ui/views/spash_view.dart';
 import 'package:moneymanager/ui/views/user_home.dart';
@@ -47,6 +48,8 @@ class Routes {
       case '/edit':
         var transaction = settings.arguments as TransactionProcess;
         return MaterialPageRoute(builder: (_) => EditView(transaction));
+      case '/savings':
+        return MaterialPageRoute(builder: (_) => Savings());
       /*   case 'edit':
         var transaction = settings.arguments as Transaction;
         return MaterialPageRoute(builder: (_) => EditView(transaction));

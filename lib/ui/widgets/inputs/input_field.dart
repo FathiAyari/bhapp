@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:moneymanager/ui/shared/app_colors.dart';
 import 'package:moneymanager/ui/shared/dimensions/dimensions.dart';
 
 class InputField extends StatelessWidget {
@@ -53,13 +54,13 @@ class InputField extends StatelessWidget {
               borderRadius: BorderRadius.circular(5),
               borderSide: BorderSide(
                 width: 2.0,
-                color: Colors.indigo.withOpacity(0.5),
+                color: primaryColor.withOpacity(0.2),
               ),
             ),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(5),
               borderSide: BorderSide(
-                color: Colors.indigo,
+                color: primaryColor,
                 width: 2.0,
               ),
             ),

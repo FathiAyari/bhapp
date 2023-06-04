@@ -54,7 +54,7 @@ class _AppDrawerState extends State<AppDrawer> {
               alignment: Alignment.centerLeft,
             ),
             decoration: BoxDecoration(
-              color: backgroundColor,
+              color: primaryColor,
             ),
           ),
           if (user["role"] == "user") ...[
@@ -64,6 +64,19 @@ class _AppDrawerState extends State<AppDrawer> {
               onTap: () {
                 Navigator.pop(context);
                 Navigator.of(context).pushNamed("/chart");
+              },
+            ),
+            Divider(
+              thickness: 1,
+            ),
+          ],
+          if (user["role"] == "user") ...[
+            ListTile(
+              title: Text('saving'.tr),
+              leading: Icon(Icons.save),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.of(context).pushNamed("/savings");
               },
             ),
             Divider(

@@ -22,6 +22,7 @@ class DetailsView extends StatelessWidget {
               },
               child: Scaffold(
                 appBar: AppBar(
+                  backgroundColor: primaryColor,
                   leading: InkWell(
                     child: Icon(Icons.arrow_back),
                     onTap: () {
@@ -56,8 +57,8 @@ class DetailsView extends StatelessWidget {
                       right: 18,
                       top: 235,
                       child: FloatingActionButton(
-                        child: Icon(Icons.edit, color: Colors.black38),
-                        backgroundColor: backgroundColor,
+                        child: Icon(Icons.edit, color: Colors.white),
+                        backgroundColor: primaryColor,
                         onPressed: () {
                           Navigator.of(context).pushNamed('/edit', arguments: transaction);
                         },

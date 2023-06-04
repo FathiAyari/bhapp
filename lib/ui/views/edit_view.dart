@@ -19,6 +19,7 @@ class EditView extends StatelessWidget {
       onModelReady: (model) => model.init(transaction),
       builder: (context, model, child) => Scaffold(
         appBar: AppBar(
+          backgroundColor: primaryColor,
           title: Text('edit'.tr),
         ),
         body: Padding(
@@ -65,6 +66,7 @@ class EditView extends StatelessWidget {
                 width: 20,
                 height: 50,
                 child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(backgroundColor: primaryColor),
                   child: Text(model.getSelectedDate()),
                   onPressed: () async {
                     await model.selectDate(context);
@@ -75,10 +77,10 @@ class EditView extends StatelessWidget {
               Align(
                 alignment: Alignment.centerLeft,
                 child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(backgroundColor: backgroundColor),
+                  style: ElevatedButton.styleFrom(backgroundColor: primaryColor),
                   child: Text(
                     'edit'.tr,
-                    style: TextStyle(fontSize: 16, color: Colors.black),
+                    style: TextStyle(fontSize: 16, color: Colors.white),
                   ),
                   onPressed: () async {
                     await model.editTransaction(context, transaction);

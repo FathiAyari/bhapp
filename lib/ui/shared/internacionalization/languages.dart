@@ -89,6 +89,7 @@ class Languages extends Translations {
           "leave_grp": "Leave the group",
           "name": "Name",
           "req_accepted": "Request accepted",
+          "saving": "Saving"
         },
         'fr': {
           "no_tr": "Aucune transaction\n Appuyez sur + pour en ajouter une.",
@@ -173,7 +174,8 @@ class Languages extends Translations {
           "leave": "Quitter",
           "leave_grp": "Quitter le groupe",
           "name": "Nom",
-          "req_accepted": "Invitaion accepté"
+          "req_accepted": "Invitaion accepté",
+          "saving": "Epargne"
         },
       };
 }

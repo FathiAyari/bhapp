@@ -20,13 +20,21 @@ class PieChartView extends StatelessWidget {
       builder: (context, model, child) => Scaffold(
         appBar: AppBar(
           iconTheme: IconThemeData(
-            color: Colors.black, //change your color here
+            color: Colors.white, //change your color here
           ),
-          backgroundColor: backgroundColor,
+          backgroundColor: primaryColor,
           title: Text(
             'statistics'.tr,
-            style: TextStyle(color: Colors.black),
+            style: TextStyle(color: Colors.white),
           ),
+          actions: [
+            IconButton(
+              onPressed: () {
+                model.generateExcelAndDownload();
+              },
+              icon: Icon(Icons.download),
+            ),
+          ],
         ),
         body: model.state == ViewState.Busy
             ? Center(child: CircularProgressIndicator())

@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:moneymanager/core/models/user.dart';
+import 'package:moneymanager/ui/shared/app_colors.dart';
 
 final snapshotMessages = FirebaseFirestore.instance;
 ScrollController controller = new ScrollController();
@@ -94,18 +95,17 @@ class _MessengerState extends State<Messenger> {
                         child: TextField(
                           controller: messageController,
                           onChanged: (value) {},
-                          cursorColor: Colors.black,
-                          style: TextStyle(
-                            height: 1.7,
-                          ),
+                          cursorColor: Colors.white,
+                          style: TextStyle(height: 1.7, color: Colors.white),
                           keyboardType: TextInputType.multiline,
                           minLines: 1,
                           maxLines: 5,
                           decoration: InputDecoration(
-                            contentPadding: EdgeInsets.all(2),
+                            contentPadding: EdgeInsets.all(5),
                             filled: true,
                             hintText: "write_message".tr,
-                            fillColor: Colors.cyan.withOpacity(0.2),
+                            hintStyle: TextStyle(color: Colors.white),
+                            fillColor: primaryColor,
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(color: Colors.transparent),
                             ),
@@ -117,7 +117,7 @@ class _MessengerState extends State<Messenger> {
                       ),
                       SizedBox(width: 5),
                       Container(
-                        decoration: BoxDecoration(color: Color(0xff00a984), borderRadius: BorderRadius.circular(50)),
+                        decoration: BoxDecoration(color: primaryColor, borderRadius: BorderRadius.circular(50)),
                         child: IconButton(
                           icon: Icon(
                             Icons.send,
@@ -181,7 +181,7 @@ class _MessageLineState extends State<MessageLine> {
                     topLeft: Radius.circular(15), bottomRight: Radius.circular(15), bottomLeft: Radius.circular(15))
                 : BorderRadius.only(
                     topRight: Radius.circular(20), bottomRight: Radius.circular(20), bottomLeft: Radius.circular(20)),
-            color: widget.check ? Color(0xff5a40a1) : Color(0xffe6ebf5),
+            color: widget.check ? primaryColor : Color(0xffe6ebf5),
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
               child: Text(

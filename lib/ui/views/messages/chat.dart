@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/utils.dart';
+import 'package:moneymanager/ui/shared/app_colors.dart';
 import 'package:moneymanager/ui/shared/dimensions/dimensions.dart';
 import 'package:moneymanager/ui/views/messages/my_messages.dart';
 import 'package:moneymanager/ui/views/messages/people.dart';
@@ -42,10 +43,10 @@ class _UserMessagesState extends State<UserMessages> with TickerProviderStateMix
                   isScrollable: true,
                   unselectedLabelColor: Colors.grey,
                   splashFactory: NoSplash.splashFactory,
-                  labelColor: Colors.green,
+                  labelColor: Colors.white,
                   controller: _tabController,
                   labelPadding: EdgeInsets.all(10),
-                  indicator: BoxDecoration(color: Colors.cyan.withOpacity(0.2), borderRadius: BorderRadius.circular(10)),
+                  indicator: BoxDecoration(color: primaryColor, borderRadius: BorderRadius.circular(10)),
                   tabs: [
                     Container(
                         alignment: Alignment.center,

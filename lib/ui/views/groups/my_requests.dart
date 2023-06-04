@@ -6,6 +6,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:intl/intl.dart';
 import 'package:lottie/lottie.dart';
 import 'package:moneymanager/core/models/request.dart';
+import 'package:moneymanager/ui/shared/app_colors.dart';
 import 'package:moneymanager/ui/shared/dimensions/dimensions.dart';
 
 class MyRequests extends StatefulWidget {
@@ -161,8 +162,7 @@ class _MyRequestsState extends State<MyRequests> {
                               return Padding(
                                 padding: const EdgeInsets.all(3.0),
                                 child: Container(
-                                  decoration:
-                                      BoxDecoration(borderRadius: BorderRadius.circular(20), color: Colors.cyan.withOpacity(0.1)),
+                                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(20), color: primaryColor),
                                   child: Row(
                                     children: [
                                       Padding(
@@ -179,15 +179,15 @@ class _MyRequestsState extends State<MyRequests> {
                                           children: [
                                             Text(
                                               "${'group_name'.tr}: ${snapshot.data!.get("name")}",
-                                              style: TextStyle(color: Colors.green),
+                                              style: TextStyle(color: Colors.white),
                                             ),
                                             Text(
                                               "${'creation_date'.tr}: ${DateFormat("yyyy/MM/dd hh:mm").format(snapshot.data!.get("createdAt").toDate())}",
-                                              style: TextStyle(color: Colors.green),
+                                              style: TextStyle(color: Colors.white),
                                             ),
                                             Text(
                                               "${'members'.tr} : ${snapshot.data!.get("members").length}",
-                                              style: TextStyle(color: Colors.green),
+                                              style: TextStyle(color: Colors.white),
                                             ),
                                             StreamBuilder(
                                                 stream: FirebaseFirestore.instance
@@ -199,7 +199,7 @@ class _MyRequestsState extends State<MyRequests> {
                                                   if (snapshot.hasData) {
                                                     return Text(
                                                       "Admin : ${snapshot.data!.get("userName")}",
-                                                      style: TextStyle(color: Colors.green),
+                                                      style: TextStyle(color: Colors.white),
                                                     );
                                                   } else {
                                                     return Container();

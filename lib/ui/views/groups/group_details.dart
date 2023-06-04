@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:intl/intl.dart';
 import 'package:moneymanager/core/models/group.dart';
+import 'package:moneymanager/ui/shared/app_colors.dart';
 import 'package:moneymanager/ui/views/groups/add_requests.dart';
 
 import '../../widgets/home_view_widgets/summary_widget.dart';
@@ -24,9 +25,9 @@ class _GroupDetailsState extends State<GroupDetails> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.white,
+        backgroundColor: primaryColor,
         iconTheme: IconThemeData(
-          color: Colors.blue,
+          color: Colors.white,
         ),
         actions: [
           if (user['uid'] == widget.group.idAdmin)
@@ -87,7 +88,7 @@ class _GroupDetailsState extends State<GroupDetails> {
         ],
         title: Text(
           "${widget.group.name}",
-          style: TextStyle(color: Colors.blue),
+          style: TextStyle(color: Colors.white),
         ),
       ),
       body: StreamBuilder(

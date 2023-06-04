@@ -1,14 +1,16 @@
 class TransactionProcess {
   final String type;
   final String day;
+  final DateTime? date;
   final String month;
   final String memo;
   final String? id;
-  final double amount;
+  double amount;
   final int categoryindex;
   TransactionProcess(
       {required this.type,
       required this.day,
+      this.date,
       required this.month,
       required this.memo,
       this.id,
@@ -19,6 +21,7 @@ class TransactionProcess {
       type: json['type'],
       day: json['day'],
       month: json['month'],
+      date: json['date'].toDate(),
       memo: json['memo'],
       id: json['id'],
       amount: json['amount'],
@@ -32,6 +35,7 @@ class TransactionProcess {
       "month": month,
       "memo": memo,
       "amount": amount,
+      "date":date,
       "categoryindex": categoryindex,
     };
   }

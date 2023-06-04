@@ -21,6 +21,7 @@ class CategoryIconService {
     Category(12, "education".tr, FontAwesomeIcons.book, Colors.teal),
     Category(13, "gift".tr, FontAwesomeIcons.gift, Colors.redAccent),
     Category(14, "pet".tr, FontAwesomeIcons.dog, Colors.deepPurpleAccent),
+    Category(15, "saving".tr, FontAwesomeIcons.save, Colors.deepPurpleAccent),
   };
   //* SECOND : INCOME LIST
   final incomeList = [

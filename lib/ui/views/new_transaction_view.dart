@@ -13,8 +13,8 @@ class NewTransactionView extends StatelessWidget {
       model: NewTransactionModel(),
       builder: (context, model, child) => Scaffold(
         appBar: AppBar(
-          iconTheme: IconThemeData(color: Colors.black),
-          backgroundColor: backgroundColor,
+          iconTheme: IconThemeData(color: Colors.white),
+          backgroundColor: primaryColor,
           title: TransactionTypeSpinner(model.selectedCategory, model.changeSelectedItem),
         ),
         body: SafeArea(

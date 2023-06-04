@@ -6,6 +6,7 @@ import 'package:lottie/lottie.dart';
 import 'package:moneymanager/core/models/group.dart';
 import 'package:moneymanager/core/models/request.dart';
 import 'package:moneymanager/core/models/user.dart';
+import 'package:moneymanager/ui/shared/app_colors.dart';
 import 'package:moneymanager/ui/shared/dimensions/dimensions.dart';
 
 class AddRequests extends StatefulWidget {
@@ -42,13 +43,13 @@ class _AddRequestsState extends State<AddRequests> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.white,
+        backgroundColor: primaryColor,
         iconTheme: IconThemeData(
-          color: Colors.blue,
+          color: Colors.white,
         ),
         title: Text(
           "add_members".tr,
-          style: TextStyle(color: Colors.blue),
+          style: TextStyle(color: Colors.white),
         ),
       ),
       body: StreamBuilder<QuerySnapshot>(
@@ -74,7 +75,7 @@ class _AddRequestsState extends State<AddRequests> {
                         padding: const EdgeInsets.all(3.0),
                         child: Container(
                           height: Constants.screenHeight * 0.1,
-                          decoration: BoxDecoration(borderRadius: BorderRadius.circular(20), color: Colors.cyan.withOpacity(0.1)),
+                          decoration: BoxDecoration(borderRadius: BorderRadius.circular(20), color: primaryColor),
                           child: Row(
                             children: [
                               Padding(
@@ -89,7 +90,7 @@ class _AddRequestsState extends State<AddRequests> {
                                 children: [
                                   Text(
                                     users[index].userName!,
-                                    style: TextStyle(color: Colors.green),
+                                    style: TextStyle(color: Colors.white),
                                   ),
                                 ],
                               ),

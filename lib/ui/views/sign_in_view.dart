@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:moneymanager/core/services/AuthServices.dart';
+import 'package:moneymanager/ui/shared/app_colors.dart';
 import 'package:moneymanager/ui/shared/dimensions/dimensions.dart';
 import 'package:moneymanager/ui/widgets/inputs/input_field.dart';
 
@@ -83,8 +84,8 @@ class _LoginScreenState extends State<SignInScreen> {
                         bottomLeft: Radius.circular(90),
                       ),
                       gradient: LinearGradient(begin: Alignment.topRight, end: Alignment.bottomLeft, colors: [
-                        Colors.blueGrey,
-                        Colors.indigo,
+                        Colors.blue,
+                        primaryColor,
                       ]),
                     ),
                     child: Center(
@@ -94,10 +95,13 @@ class _LoginScreenState extends State<SignInScreen> {
                       children: [
                         Container(
                           margin: EdgeInsets.only(top: 50),
-                          child: Image(
-                            image: AssetImage('assets/icons/logo.png'),
-                            height: 100,
-                            width: 100,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(20),
+                            child: Image(
+                              image: AssetImage('assets/images/bh.jpg'),
+                              height: 100,
+                              width: 100,
+                            ),
                           ),
                         ),
                         // SizedBox(height: 10),
@@ -121,10 +125,7 @@ class _LoginScreenState extends State<SignInScreen> {
                     label: "Email",
                     controller: emailController,
                     textInputType: TextInputType.emailAddress,
-                    prefixWidget: Icon(
-                      Icons.email,
-                      color: Colors.indigo,
-                    ),
+                    prefixWidget: Icon(Icons.email, color: primaryColor),
                   ),
                   InputField(
                     label: "Mot de passe",
@@ -132,7 +133,7 @@ class _LoginScreenState extends State<SignInScreen> {
                     textInputType: TextInputType.visiblePassword,
                     prefixWidget: Icon(
                       Icons.lock,
-                      color: Colors.indigo,
+                      color: primaryColor,
                     ),
                   ),
                   SizedBox(
@@ -170,7 +171,7 @@ class _LoginScreenState extends State<SignInScreen> {
                                   child: CupertinoButton(
                                       child:
                                           Text('Connexion', style: TextStyle(color: Colors.white, fontStyle: FontStyle.italic)),
-                                      color: Colors.indigo,
+                                      color: primaryColor,
                                       onPressed: () {
                                         if (_formKey.currentState!.validate()) {
                                           setState(() {
@@ -211,7 +212,7 @@ class _LoginScreenState extends State<SignInScreen> {
                           Expanded(
                               child: TextButton(
                             child: Text("Besoin d'un nouveau compte?",
-                                style: TextStyle(color: Colors.indigo, fontSize: 14, fontStyle: FontStyle.italic)),
+                                style: TextStyle(color: primaryColor, fontSize: 14, fontStyle: FontStyle.italic)),
                             onPressed: () {
                               Get.toNamed("/register");
                             },

@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -26,31 +25,6 @@ class _InsertTranscationViewState extends State<InsertTranscationView> {
 
   var user = GetStorage().read("user");
 
-  searchResult() async {
-    List<TransactionProcess> showResultList = [];
-    var data = await FirebaseFirestore.instance
-        .collection("users")
-        .doc(user['uid'])
-        .collection("transactions")
-        .where("type", isEqualTo: "expense")
-        .where("categoryindex", isEqualTo: widget.category.index)
-        .get();
-    print(data.docs.toList().first.get("memo"));
-    if (memoController.text != "") {
-      for (var value in data.docs.toList()) {
-        var res = TransactionProcess.fromJson(value.data() as Map<String, dynamic>);
-        if (res.memo!.contains(memoController.text.toLowerCase())) {
-          showResultList.add(res);
-        }
-      }
-    } else {
-      showResultList = [];
-    }
-    setState(() {
-      result = showResultList;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return BaseView<InsertTransactionModel>(
@@ -58,6 +32,7 @@ class _InsertTranscationViewState extends State<InsertTranscationView> {
       onModelReady: (model) => model.init(widget.selectedCategory, widget.category.index),
       builder: (context, model, child) => Scaffold(
         appBar: AppBar(
+          backgroundColor: primaryColor,
           title: widget.selectedCategory == 1 ? Text('income'.tr) : Text('expense'.tr),
         ),
         body: SafeArea(
@@ -77,9 +52,6 @@ class _InsertTranscationViewState extends State<InsertTranscationView> {
                   ),
                   UIHelper.verticalSpaceMedium(),
                   TransactionField(
-                      test: (value) {
-                        searchResult();
-                      },
                       controller: memoController,
                       text: 'label'.tr + ' : ',
                       helperText: "enter_label".tr,
@@ -131,6 +103,7 @@ class _InsertTranscationViewState extends State<InsertTranscationView> {
                     width: 20,
                     height: 50,
                     child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(backgroundColor: primaryColor),
                       child: Text(model.getSelectedDate()),
                       onPressed: () async {
                         await model.selectDate(context);
@@ -143,10 +116,10 @@ class _InsertTranscationViewState extends State<InsertTranscationView> {
                     child: model.loading
                         ? CircularProgressIndicator()
                         : ElevatedButton(
-                            style: ElevatedButton.styleFrom(backgroundColor: backgroundColor),
+                            style: ElevatedButton.styleFrom(backgroundColor: primaryColor),
                             child: Text(
                               'add'.tr,
-                              style: TextStyle(fontSize: 16, color: Colors.black),
+                              style: TextStyle(fontSize: 16, color: Colors.white),
                             ),
                             onPressed: () {
                               if (_formkey.currentState!.validate()) {

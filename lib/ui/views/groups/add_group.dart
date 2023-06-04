@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/utils.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:moneymanager/ui/shared/app_colors.dart';
 import 'package:moneymanager/ui/views/action_button.dart';
 import 'package:moneymanager/ui/widgets/inputs/input_field.dart';
 
@@ -25,11 +26,11 @@ class _AddGroupState extends State<AddGroup> {
         elevation: 0,
         backgroundColor: Colors.white,
         iconTheme: IconThemeData(
-          color: Colors.blue,
+          color: primaryColor,
         ),
         title: Text(
           "add_grp".tr,
-          style: TextStyle(color: Colors.blue),
+          style: TextStyle(color: primaryColor),
         ),
       ),
       body: Form(
@@ -39,7 +40,7 @@ class _AddGroupState extends State<AddGroup> {
             InputField(label: "grp_name".tr, textInputType: TextInputType.text, controller: nameController),
             ActionButton(
                 label: 'add'.tr,
-                buttonColor: Colors.indigo,
+                buttonColor: primaryColor,
                 labelColor: Colors.white,
                 onPressed: () async {
                   if (_formKey.currentState!.validate()) {
